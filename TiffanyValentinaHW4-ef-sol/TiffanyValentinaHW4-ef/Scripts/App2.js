@@ -11,7 +11,7 @@ function DropDownLoad() {
 
 //an AJAX Get for employees (first and last name) that populates in dropdown
 function GetEmployeeNames() {
-    $.get(uri + "/EmployeeNames", function (data, status) {
+    $.get(uri + "/EmployeeNames", function (data) {
 
         for (var i = 0; i < data.length; i++) {
             var x = document.createElement("option");
@@ -28,7 +28,7 @@ function GetEmployeeSales() {
     var x = document.getElementById("namedropdown");
     var empID = x.value;
 
-    $.get(uri + "/EmployeeSales/" + empID, function (data, status) {
+    $.get(uri + "/EmployeeSales/" + empID, function (data) {
         var success = "This employee sold $" + data + " of CDs for the year";
         $("#salesByEmployee").text(success);
     }).fail(function (err) {
@@ -38,7 +38,7 @@ function GetEmployeeSales() {
 
 //An AJAX Get for stores (city) that populates in dropdown
 function GetCityList() {
-    $.get(uri + "/StoreCity", function (data, status) {
+    $.get(uri + "/StoreCity", function (data) {
 
         for (var i = 0; i < data.length; i++) {
             var x = document.createElement("option");
@@ -55,10 +55,10 @@ function GetTotalStoreSales() {
     var x = document.getElementById("citydropdown");
     var storeId = x.value;
 
-    $.get(uri + "/StoreSales/" + storeId, function (data, status) {
+    $.get(uri + "/StoreSales/" + storeId, function (data) {
         var success = "This store sold  $" + data + " of CDs for the year.";
         $("#salesByStore").text(success);
-    }).fail(function (err) {
+    }).fail(function (error) {
         alert('Data failed to load');
     });
 };
