@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NodeOrders500Model1StoreContainer" CdmEntityContainer="NodeOrders500Entities2">
+    <EntitySetMapping Name="CDTables">
+      <EntityTypeMapping TypeName="NodeOrders500Model1.CDTable">
+        <MappingFragment StoreEntitySet="CDTable">
+          <ScalarProperty Name="cdID" ColumnName="cdID" />
+          <ScalarProperty Name="CDname" ColumnName="CDname" />
+          <ScalarProperty Name="Artist" ColumnName="Artist" />
+          <ScalarProperty Name="RecordCompany" ColumnName="RecordCompany" />
+          <ScalarProperty Name="YearReleased" ColumnName="YearReleased" />
+          <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="NodeOrders500Model1.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="ordersID" ColumnName="ordersID" />
+          <ScalarProperty Name="storeID" ColumnName="storeID" />
+          <ScalarProperty Name="salesPersonID" ColumnName="salesPersonID" />
+          <ScalarProperty Name="cdID" ColumnName="cdID" />
+          <ScalarProperty Name="pricePaid" ColumnName="pricePaid" />
+          <ScalarProperty Name="dayPurch" ColumnName="dayPurch" />
+          <ScalarProperty Name="hourPurch" ColumnName="hourPurch" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesPersonTables">
+      <EntityTypeMapping TypeName="NodeOrders500Model1.SalesPersonTable">
+        <MappingFragment StoreEntitySet="SalesPersonTable">
+          <ScalarProperty Name="salesPersonID" ColumnName="salesPersonID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="storeID" ColumnName="storeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StoreTables">
+      <EntityTypeMapping TypeName="NodeOrders500Model1.StoreTable">
+        <MappingFragment StoreEntitySet="StoreTable">
+          <ScalarProperty Name="storeID" ColumnName="storeID" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="NumberEmployees" ColumnName="NumberEmployees" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
