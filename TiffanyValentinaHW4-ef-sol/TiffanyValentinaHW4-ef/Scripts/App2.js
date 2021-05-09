@@ -1,10 +1,10 @@
 ﻿var uri = 'https://localhost:44311/api/Query2And3'
 
 //this loads the two drop downs: One in Employees and one in Stores
-PageLoad();
+DropDownLoad();
 
 //A function that loads the list of cities in dropdown
-function PageLoad() {
+function DropDownLoad() {
     GetEmployeeNames();
     GetCityList();
 }
