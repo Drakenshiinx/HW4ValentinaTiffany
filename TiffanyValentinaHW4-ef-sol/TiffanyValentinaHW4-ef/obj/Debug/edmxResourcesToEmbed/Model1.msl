@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="NodeOrders500Model1StoreContainer" CdmEntityContainer="NodeOrders500Entities2">
+  <EntityContainerMapping StorageEntityContainer="NodeOrders500Model1StoreContainer" CdmEntityContainer="NodeOrders500Entities3">
     <EntitySetMapping Name="CDTables">
       <EntityTypeMapping TypeName="NodeOrders500Model1.CDTable">
         <MappingFragment StoreEntitySet="CDTable">
