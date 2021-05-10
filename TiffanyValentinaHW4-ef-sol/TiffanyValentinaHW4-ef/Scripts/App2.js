@@ -1,4 +1,4 @@
-﻿var uri = '/api/Query2And3'
+﻿var uri = '/api/Query'
 
 //this loads the two drop downs: One in Employees and one in Stores
 DropDownLoad();
@@ -7,6 +7,26 @@ DropDownLoad();
 function DropDownLoad() {
     GetEmployeeNames();
     GetCityList();
+}
+
+//this function will load the cities
+$(document).ready(function () {
+    $("#storescount").empty();
+    GetShowData();
+
+});
+
+//query 1 AJAX function
+function GetShowData() {
+    // Send an AJAX request
+    $.getJSON(uri + "/StoresNames", function (data) {
+        // On success, 'data' contains a list of City and Count.
+        $('<li>', { text: "City:" + data + ",Count: " + data }).appendTo($('#storescount'));
+        $.each(data, function (key, item) {
+            // Add a list item for City and Count.
+            $('<li>', { text: formatItem(item) }).appendTo($('#storescount'));
+        });
+    });
 }
 
 //an AJAX Get for employees (first and last name) that populates in dropdown

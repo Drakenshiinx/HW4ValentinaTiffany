@@ -7,9 +7,23 @@ using System.Web.Http;
 
 namespace TiffanyValentinaHW4_ef.Controllers
 {
-    public class Query2And3Controller : ApiController
+    public class QueryController : ApiController
     {
-        NodeOrders500Entities5 myDB = new NodeOrders500Entities5();
+
+        NodeOrders500Entities6 myDB = new NodeOrders500Entities6();
+
+
+        //constructor for query 1
+        public class CDs
+        {
+            public CDs(string pCity, int pCount)
+            {
+                City = pCity;
+                Count = pCount;
+            }
+            public string City { get; set; }
+            public int Count { get; set; }
+        }
 
         //constructor for the employee table
         public class EmployeeTableClass
@@ -47,8 +61,36 @@ namespace TiffanyValentinaHW4_ef.Controllers
             public string City { get; set; }
         }
 
-        //this populates the employees first and last names into a drop down menu
+        //query 1
         [HttpGet]
+        [ActionName("StoresNames")]
+        public IEnumerable<Order> GetAllOrders()
+        {
+            return myDB.Orders;
+        }
+        public IEnumerable<StoreTable> GetAllStores()
+        {
+            return myDB.StoreTables;
+        }
+
+        public IHttpActionResult GetShowData(int x)
+        {
+
+            var query1 = from eachStore in myDB.StoreTables
+                         where eachStore.storeID == x
+                         group eachStore by eachStore.City;
+
+            List<CDs> myList = new List<CDs>();
+
+            foreach (var group in query1)
+            {
+                myList.Add(new CDs(group.Key, group.Count()));
+            }
+
+            return Json(myList);
+        }
+
+        //this populates the employees first and last names into a drop down menu
         [ActionName("EmployeeNames")]
 
         public IEnumerable<EmployeeTableClass> GetEmployeeNames()
@@ -69,8 +111,8 @@ namespace TiffanyValentinaHW4_ef.Controllers
             try
             {
                 empSales = (from x in myDB.Orders
-                         where x.salesPersonID == id && x.dayPurch <= 365
-                         select x.pricePaid).Sum();
+                            where x.salesPersonID == id && x.dayPurch <= 365
+                            select x.pricePaid).Sum();
             }
             catch
             {
@@ -101,8 +143,8 @@ namespace TiffanyValentinaHW4_ef.Controllers
             try
             {
                 storeSales = (from x in myDB.Orders
-                         where x.storeID == id && x.dayPurch <= 365
-                         select x.pricePaid).Sum();
+                              where x.storeID == id && x.dayPurch <= 365
+                              select x.pricePaid).Sum();
 
             }
             catch
