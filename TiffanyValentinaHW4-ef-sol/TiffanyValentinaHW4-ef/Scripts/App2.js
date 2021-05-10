@@ -1,4 +1,4 @@
-﻿var uri = 'https://localhost:44311/api/Query2And3'
+﻿var uri = '/api/Query2And3'
 
 //this loads the two drop downs: One in Employees and one in Stores
 DropDownLoad();
