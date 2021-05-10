@@ -10,7 +10,7 @@ namespace TiffanyValentinaHW4_ef.Controllers
     public class QueryController : ApiController
     {
 
-        NodeOrders500Entities6 myDB = new NodeOrders500Entities6();
+        NodeOrders500Entities7 myDB = new NodeOrders500Entities7();
 
 
         //constructor for query 1
