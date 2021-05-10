@@ -9,7 +9,9 @@ namespace TiffanyValentinaHW4_ef.Controllers
 {
     public class Query1Controller : ApiController
     {
-        NodeOrders500Entities myDB = new NodeOrders500Entities();
+        NodeOrders500Entities5 myDB = new NodeOrders500Entities5();
+        [HttpGet]
+        [ActionName("StoresNames")]
         public IEnumerable<Order> GetAllOrders()
         {
             return myDB.Orders;
@@ -39,7 +41,7 @@ namespace TiffanyValentinaHW4_ef.Controllers
         }
 
       
-        public IHttpActionResult GetCDOrders(int x)
+        public IHttpActionResult GetShowData(int x)
         {
             
             var query1 = from eachStore in myDB.StoreTables

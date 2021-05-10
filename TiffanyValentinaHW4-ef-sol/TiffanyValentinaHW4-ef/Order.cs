@@ -12,12 +12,18 @@ namespace TiffanyValentinaHW4_ef
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class Order
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int ordersID { get; set; }
+        public int storeID { get; set; }
+        public int salesPersonID { get; set; }
+        public int cdID { get; set; }
+        public int pricePaid { get; set; }
+        public int dayPurch { get; set; }
+        public int hourPurch { get; set; }
+    
+        public virtual CDTable CDTable { get; set; }
+        public virtual SalesPersonTable SalesPersonTable { get; set; }
+        public virtual StoreTable StoreTable { get; set; }
     }
 }

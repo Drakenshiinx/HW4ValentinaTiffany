@@ -1,39 +1,22 @@
 ﻿
 var uri = 'api/Query1';
 
+//this function will load the cities
 $(document).ready(function () {
-    $('#saveResponse').text = '';
-    $("#notes").empty();
+    $("#storescount").empty();
     GetShowData();
 
 });
 
 function GetShowData() {
     // Send an AJAX request
-    $.getJSON(uri)
-        .done(function (data) {
-            // On success, 'data' contains a list of products.
-            $('<li>', { text: "Priority: Subject => Details" }).appendTo($('#notes'));
+    $.getJSON(uri + "/StoresNames", function (data) {
+            // On success, 'data' contains a list of City and Count.
+            $('<li>', { text: "City:" + data + ",Count: " + data  }).appendTo($('#storescount'));
             $.each(data, function (key, item) {
-                // Add a list item for the product.
-                $('<li>', { text: formatItem(item) }).appendTo($('#notes'));
+                // Add a list item for City and Count.
+                $('<li>', { text: formatItem(item) }).appendTo($('#storescount'));
             });
         });
 }
 
-function formatItem(item) {
-    return item.Priority + ':   ' + item.Subject + ' =>  ' + item.Details;
-}
-
-function find() {
-    $('#saveResponse').text = '';
-    $("#notes").empty();
-    var id = $('#SearchId').val();
-    $.getJSON(uri + '/' + id)
-        .done(function (data) {
-            $('#note').text(formatItem(data));
-        })
-        .fail(function (jqXHR, textStatus, err) {
-            $('#note').text('Error: ' + err);
-        });
-};

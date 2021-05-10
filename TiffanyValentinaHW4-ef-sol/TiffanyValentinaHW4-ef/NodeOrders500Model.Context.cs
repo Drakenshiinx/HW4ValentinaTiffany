@@ -13,10 +13,10 @@ namespace TiffanyValentinaHW4_ef
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NodeOrders500Entities : DbContext
+    public partial class NodeOrders500Entities5 : DbContext
     {
-        public NodeOrders500Entities()
-            : base("name=NodeOrders500Entities")
+        public NodeOrders500Entities5()
+            : base("name=NodeOrders500Entities5")
         {
         }
     
@@ -26,10 +26,8 @@ namespace TiffanyValentinaHW4_ef
         }
     
         public virtual DbSet<CDTable> CDTables { get; set; }
-        public virtual DbSet<Inventory> Inventories { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<SalesPersonTable> SalesPersonTables { get; set; }
         public virtual DbSet<StoreTable> StoreTables { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }
