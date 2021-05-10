@@ -9,7 +9,7 @@ namespace TiffanyValentinaHW4_ef.Controllers
 {
     public class Query2And3Controller : ApiController
     {
-        NodeOrders500Entities4 myDB = new NodeOrders500Entities4();
+        NodeOrders500Entities myDB = new NodeOrders500Entities();
 
         //constructor for the employee table
         public class EmployeeTableClass
